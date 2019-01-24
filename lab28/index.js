@@ -106,3 +106,7 @@ var task1=function(){
 		
 	}
 	}
+
+	var task6=function(){
+		
+	}

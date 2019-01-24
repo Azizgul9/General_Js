@@ -101,10 +101,10 @@
 		x=parseInt(prompt("Result of "+i+" * "+j+" = "));
 
 		if(x==answer){
-			alert("You are wrong!");
+			alert("You are correct!");
 		}
 		else{
-			alert("You are correct!");
+			alert("You are wrong!");
 		}
 
 	}
