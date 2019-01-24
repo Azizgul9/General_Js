@@ -74,30 +74,30 @@ var task1=function(){
 
 	var task5=function(){
 		
-		function getRendomInt(limits,startValue){
+		function getRendomInt(max,min){
 			var mixErrors=[];
 			var counter=0;
 
-			while(true){
-				var num1=Math.floor(Math.random()*limits+startValue);
-				var num2=Math.floor(Math.random()*9+1);
+			while(product=true){
+				var num1=Math.floor(Math.random()*(max-min))+min;
+				var num2=Math.floor(Math.random()*9)+1;
 				var answer=num1*num2;
 				var product=parseInt(prompt("Произведение "+num1+" * "+num2+" = "));
-				if(product!=answer){
-					 mixErrors.push(num1);
-					 mixErrors.push(num2);
-				}
-				else if(product==null){
+				if(product===null){
 					break;
 				}
+				else if(product!=answer){
+					 mixErrors.push(num1);
+					 mixErrors.push(num2);
+				} 
 				else{
 					alert("Молодетц!")
 				}
 
-				for(var z=1;z<mixErrors.length;z++){
-					if(z==mixErrors[z]){
+				for(var z=0;z<mixErrors.length;z++){
+					if(mixErrors[z]==mixErrors[z+1]){
 						counter++;
-						console.log(z);
+						console.log(mixErrors[z]+ " "+counter );
 					}
 
 			}
@@ -110,11 +110,11 @@ var task1=function(){
 			case 'низкая':
 				getRendomInt(2,1);
 			case 'средняя':
-				getRendomInt(5,3)
+				getRendomInt(6,3)
 			case 'высокая':
-				getRendomInt(9,4)
+				getRendomInt(9,3)
 			case 'все':
-				getRendomInt(1,9);
+				getRendomInt(9,1);
 		}
 		
 }
