@@ -74,7 +74,7 @@ var task1=function(){
 
 	var task5=function(){
 		function getRendomInt(limits,startValue){
-
+			var error=0;
 			while(true){
 				var i=Math.floor(Math.random()*limits+startValue);
 				var j=Math.floor(Math.random()*limits+startValue);
