@@ -91,7 +91,7 @@ var task1=function(){
 					 mixErrors.push(num2);
 				} 
 				else{
-					alert("Молодетц!")
+					alert("Молодец!")
 				}
 
 				for(var z=0;z<mixErrors.length;z++){
