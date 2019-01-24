@@ -74,16 +74,33 @@ var task1=function(){
 
 	var task5=function(){
 		function getRendomInt(limits,startValue){
-			var error=0;
+			var mixErrors=[];
+			var counter=0;
+
 			while(true){
-				var i=Math.floor(Math.random()*limits+startValue);
-				var j=Math.floor(Math.random()*limits+startValue);
-				var answer=i*j;
-				var product=parseInt(prompt("Производное "+i+" * "+j+" = "));
+				var num1=Math.floor(Math.random()*limits+startValue);
+				var mum2=Math.floor(Math.random()*9+startValue);
+				var answer=num1*num2;
+				var product=parseInt(prompt("Произведение "+num1+" * "+num2+" = "));
 				if(product!=answer){
-					error++;
+					 mixErrors.push(num1);
+					 mixErrors.push(num2);
 				}
+				else if(product==null){
+					break;
+				}
+				else{
+					alert("Молодетц!")
+				}
+
+				for(var z=1;z<mixErrors.length;z++){
+					if(z==mixErrors[z]){
+						counter++;
+						console.log(z);
+					}
+
 			}
+
 		}
 		
 		var chousingLevel=prompt("Выберите сложность: низкая, средняя, высокая,все");
