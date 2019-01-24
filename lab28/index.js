@@ -73,13 +73,14 @@ var task1=function(){
 	}
 
 	var task5=function(){
+		
 		function getRendomInt(limits,startValue){
 			var mixErrors=[];
 			var counter=0;
 
 			while(true){
 				var num1=Math.floor(Math.random()*limits+startValue);
-				var mum2=Math.floor(Math.random()*9+startValue);
+				var num2=Math.floor(Math.random()*9+1);
 				var answer=num1*num2;
 				var product=parseInt(prompt("Произведение "+num1+" * "+num2+" = "));
 				if(product!=answer){
@@ -102,6 +103,7 @@ var task1=function(){
 			}
 
 		}
+	}
 		
 		var chousingLevel=prompt("Выберите сложность: низкая, средняя, высокая,все");
 		switch(chousingLevel){
