@@ -53,7 +53,7 @@ var task1=function(){
 		var average=0;
 
 		while(true){
-			var number=prompt("Enter a num from 1 to 100");
+			var number=prompt("Введите число 0т 0 до 100: ");
 
 			if(number>=1 || number<=100){
 				numbers.push(parseInt(number));
@@ -69,11 +69,11 @@ var task1=function(){
 			
 		}
 
-		alert("quantity of entered numbers is: "+numbers.length+"\n"+"average is: "+average);
+		alert("Количество введенных чисел: "+numbers.length+"\n"+"среднее арифметическое: "+average);
 	}
 
 	var task5=function(){
-		var chousingLevel=prompt("ыберите сложность: низкая, средняя, высокая,все");
+		var chousingLevel=prompt("Выберите сложность: низкая, средняя, высокая,все");
 		switch(chousingLevel){
 			case 'низкая':
 				var limit=2;
@@ -97,16 +97,12 @@ var task1=function(){
 		var iCounter=[];
 		var jCounter=[];
 		while(true){
-		x=parseInt(prompt("Result of "+i+" * "+j+" = "));
+		x=parseInt(prompt("Производное "+i+" * "+j+" = "));
 
 		if(x!=answer){
 			errorAtJ++;
-
 			errorAtI++;
 		}
-		else{
-			alert("You are correct!");
-		}
-
+		
 	}
 	}
