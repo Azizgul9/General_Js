@@ -58,10 +58,10 @@ var task1=function(){
 			if(number>=1 || number<=100){
 				numbers.push(parseInt(number));
 			}
-			else if(number==null){
+			else if(number===null){
 				break;
 			}
-			
+
 			for (var i = 0;i<numbers.length;i++) {
 				total+=numbers[i];
 			}
@@ -72,35 +72,41 @@ var task1=function(){
 		alert("quantity of entered numbers is: "+numbers.length+"\n"+"average is: "+average);
 	}
 
-	/*var task5=function(){
+	var task5=function(){
 		var chousingLevel=prompt("ыберите сложность: низкая, средняя, высокая,все");
 		switch(chousingLevel){
 			case 'низкая':
-				var i=Math.round(Math.random()*2+1);
-				var j=Math.round(Math.random()*2+1);
+				var limit=2;
+				var i=Math.round(Math.random()*limit+1);
+				var j=Math.round(Math.random()*limit+1);
 			case 'средняя':
-				var i=Math.round(Math.random()*2+1);
-				var j=Math.round(Math.random()*2+1);
+				var limit=5
+				var i=Math.round(Math.random()*limit+3);
+				var j=Math.round(Math.random()*limit+3);
 			case 'высокая':
+				var limit=5;
 				var i=Math.round(Math.random()*5+3);
 				var j=Math.round(Math.random()*5+3);
 			case 'все':
 				var i=Math.round(Math.random()*9+1);
 				var j=Math.round(Math.random()*9+1);
-
 		}
-
-		var i=Math.round(Math.random()*9+1);
-		var j=Math.round(Math.random()*9+1);
-		var improvment=0;
-		var disimprovment=0;
+		var errorAtI=0;
+		var errorAtJ=0;
 		var answer=i*j;
+		var iCounter=[];
+		var jCounter=[];
+		while(true){
 		x=parseInt(prompt("Result of "+i+" * "+j+" = "));
 
-		if(x==answer){
-			alert("You are wrong!");
+		if(x!=answer){
+			errorAtJ++;
+
+			errorAtI++;
 		}
 		else{
 			alert("You are correct!");
 		}
-	}*/
+
+	}
+	}
