@@ -73,39 +73,33 @@ var task1=function(){
 	}
 
 	var task5=function(){
+		function getRendomInt(limits,startValue){
+
+			while(true){
+				var i=Math.floor(Math.random()*limits+startValue);
+				var j=Math.floor(Math.random()*limits+startValue);
+				var answer=i*j;
+				var product=parseInt(prompt("Производное "+i+" * "+j+" = "));
+				if(product!=answer){
+					error++;
+				}
+			}
+		}
+		
 		var chousingLevel=prompt("Выберите сложность: низкая, средняя, высокая,все");
 		switch(chousingLevel){
 			case 'низкая':
-				var limit=2;
-				var i=Math.round(Math.random()*limit+1);
-				var j=Math.round(Math.random()*limit+1);
+				getRendomInt(2,1);
 			case 'средняя':
-				var limit=5
-				var i=Math.round(Math.random()*limit+3);
-				var j=Math.round(Math.random()*limit+3);
+				getRendomInt(5,3)
 			case 'высокая':
-				var limit=5;
-				var i=Math.round(Math.random()*5+3);
-				var j=Math.round(Math.random()*5+3);
+				getRendomInt(9,4)
 			case 'все':
-				var i=Math.round(Math.random()*9+1);
-				var j=Math.round(Math.random()*9+1);
-		}
-		var errorAtI=0;
-		var errorAtJ=0;
-		var answer=i*j;
-		var iCounter=[];
-		var jCounter=[];
-		while(true){
-		x=parseInt(prompt("Производное "+i+" * "+j+" = "));
-
-		if(x!=answer){
-			errorAtJ++;
-			errorAtI++;
+				getRendomInt(1,9);
 		}
 		
-	}
-	}
+}
+	
 
 	var task6=function(){
 		

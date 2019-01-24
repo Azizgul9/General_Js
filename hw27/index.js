@@ -95,8 +95,8 @@
 	}
 
 	var task7=function(){
-		var i=Math.round(Math.random()*9+1);
-		var j=Math.round(Math.random()*9+1);
+		var i=Math.floor(Math.random()*9+1);
+		var j=Math.floor(Math.random()*9+1);
 		var answer=i*j;
 		x=parseInt(prompt("Result of "+i+" * "+j+" = "));
 
