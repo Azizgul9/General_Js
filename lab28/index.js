@@ -51,7 +51,7 @@ var task1=function(){
 		var total=0;
 		var numbers=[];
 		var average=0;
-
+		var counterInSimilarErrors=0;
 		while(true){
 			var number=prompt("Введите число 0т 0 до 100: ");
 
@@ -77,49 +77,79 @@ var task1=function(){
 		function getRendomInt(max,min){
 			var mixErrors=[];
 			var counter=0;
+			var counterInSimilarErrors=0;
 
-			while(product=true){
+			while(true){
 				var num1=Math.floor(Math.random()*(max-min))+min;
 				var num2=Math.floor(Math.random()*9)+1;
 				var answer=num1*num2;
-				var product=parseInt(prompt("Произведение "+num1+" * "+num2+" = "));
+				var product=prompt("Произведение "+num1+" * "+num2+" = ");
 				if(product===null){
 					break;
 				}
 				else if(product!=answer){
-					 mixErrors.push(num1);
-					 mixErrors.push(num2);
+					mixErrors.push(num1);
+					mixErrors.push(num2);
 				} 
 				else{
 					alert("Молодец!")
 				}
 
-				for(var z=0;z<mixErrors.length;z++){
+				/*for(var z=0;z<mixErrors.length;z++){
 					if(mixErrors[z]==mixErrors[z+1]){
+						counterInSimilarErrors=z;
 						counter++;
-						console.log(mixErrors[z]+ " "+counter );
+						alert(counterInSimilarErrors+ " "+counter);
 					}
+					}
+					*/
+
+				}
 
 			}
 
-		}
-	}
 		
 		var chousingLevel=prompt("Выберите сложность: низкая, средняя, высокая,все");
 		switch(chousingLevel){
 			case 'низкая':
-				getRendomInt(2,1);
+			getRendomInt(2,1);
 			case 'средняя':
-				getRendomInt(6,3)
+			getRendomInt(6,3)
 			case 'высокая':
-				getRendomInt(9,3)
+			getRendomInt(9,3)
 			case 'все':
-				getRendomInt(9,1);
+			getRendomInt(9,1);
 		}
 		
-}
+	}
 	
 
 	var task6=function(){
 		
+		var border={
+			x:12,
+			y:6
+		};
+		var xCordinata=prompt("Введите координату х: ");
+		var yCordinata=prompt("Введите координату y: ");
+
+		if (xCordinata==border.x && (yCordinata<=border.y || yCordinata>=border.y)) {
+			alert("border");
+		}
+		else if (yCordinata==border.y && (xCordinata<=border.x || xCordinata>=border.x)) {
+			alert("border");}
+		else if (xCordinata>border.x && yCordinata>border.y){
+			alert("NE");
+		}
+		else if(xCordinata>border.x && yCordinata<border.y){
+			alert("SE");
+		}
+		else if(xCordinata<border.x && yCordinata<border.y){
+			alert("WS");
+		}
+		else if(xCordinata<border.x && yCordinata>border.y){
+			alert("NW");
+		}
+
+
 	}
