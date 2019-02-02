@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hw30</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="tasks">
+			<div class="task3">
+				<h3>Задание 3</h3>
+				<p>
+					Создайте объект "Circle" на основании введенного пользователем радиуса. У нового объекта должно быть два метода: "получить площадь круга" и "получить длину окружности" и свойство "радиус", равное введенному пользователем значению. <br>
+					Вывести данные с помощью alert об этом круге: радиус, площадь и длину окружности, используя методы данного объекта. <br>
+					Указания:
+					Сдавать в виде HTML-файла
+				</p>
+				<button onclick="task3()">Answer</button>
+			</div>
+		</div>
+	</div>
+	<script>
+function task3(){
+		var Circle={
+			radius: prompt('Enter a radius: '),
+			getSquare=function(){
+				return Math.Pi()*this.radius;
+			},
+			getLength=function(){
+
+			}
+		};
+}
+	</script>
+</body>
+</html>

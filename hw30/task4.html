@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hw30</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="tasks">
+			<div class="task4">
+				<h3>Задание 4</h3>
+				<p>
+					Хозяин планирует вечеринку. Для него составили список имен друзей, которых надо пригласить. С вероятностью 20% ему не понравится любое имя и он не включит его в список гостей. <br>
+					Надо создать объект "Хозяин" (Host), у которого будет метод "Утвердить список гостей" (setGuestList) и свойство guestList, представляющее из себя пустой массив. <br>
+					Метод setGuestList принимает массив имен гостей (массив строк), и добавляет по одному имени в свойство guestList, при этом есть шанс 20%, что имя не добавится (или 80% что имя добавится, как угодно). <br>
+					Затем необходимо вывести список гостей, которых хозяин позовет на вечеринку и сравнить количество переданных хозяину имен, и имен в списке. <br>
+					Пример использования объекта Host: <br>
+					var initialList = ['John', 'Jack', 'Harry', 'Mario', 'Link', 'Zelda', 'Bowser']; <br>
+					Host.setGuestList(initialList); <br>
+					console.log(Host.guestList);
+					Вывод в консоль (пример сообщений): <br>
+					Initially, guest list had: 7 names. <br>
+					After Host decided, only 4 names left. <br>
+					Host decided on: Jack, Harry, Mario, Zelda to come to the party <br>
+					Указания: <br>
+					Придумать список имен самостоятельно. <br>
+					Вывод в консоль или alert по выбору. <br>
+					Сообщения для вывода придумать самостоятельно.  Можно сделать на русском языке. <br>
+					Сдавать в виде HTML файла.
+				</p>
+				<button onclick="task4()">Answer</button>
+			</div>
+		</div>
+	</div>
+	<script>
+function task4(){
+		var initialList=['Aygul','Alina','Aysha'.'Akmaral','Altynay','Begayim','Hamina'];
+		var Host={
+			guestList: [];
+			setGuestList: function(initialList){
+				 Math.floor(Math.random() * initialList.length + 1)
+			}
+
+		};
+}
+	</script>
+}
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hw30</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="tasks">
+			<div class="task2">
+				<h3>Задание 2</h3>
+				<p>
+					Создайте объект Calculator с тремя методами: <br>
+					read() - запрашивает с помощью prompt два значения и сохраняет их как свойства объекта. <br>
+					sum() - возвращает сумму этих двух значений. <br>
+					multiply() - возвращает произведение этих двух значений. <br> 
+					Пример использования: <br>
+					Calculator.read(); <br>
+					alert(Calculator.sum()); <br>
+					alert(Calculator.multiply()); <br>
+			 		Указания: <br>
+					Можете добавить дополнительные методы, например, разность, деление или нахождение остатка от деления. <br>
+					Сдавать в виде HTML-файла
+				</p>
+				<button onclick="task2()">Answer</button>
+			</div>
+		</div>
+	</div>
+	<script>
+function task2(){
+	var Calculator={
+		a: 0,
+		b: 0,
+		read: function(){
+			this.a=parseInt(prompt('enter any num1: '));
+			this.b=parseInt(prompt('enter any num2: '));
+			return 'num1 is '+this.a+' num2 is '+this.b;
+		},
+		sum: function(){
+			return 'sum: '+(this.a+this.b);
+		},
+		multiply: function(){
+			return 'multiple: '+this.a*this.b;
+		},
+		devision:function(){
+			return 'devision: '+this.a/this.b;
+		},
+		difference:function(){
+			return 'difference: '+(this.a - this.b);
+		}
+	};
+	console.log(Calculator.read());
+	console.log(Calculator.sum());
+	console.log(Calculator.multiply());
+	console.log(Calculator.devision());
+	console.log(Calculator.difference());
+}
+	</script>
+</body>
+</html>

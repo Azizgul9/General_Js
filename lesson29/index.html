@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ls29</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var askForNumber= function(message,min,max){
+			var number;
+			do{
+				number=parseInt(prompt(message));
+				console.log(isNaN(number), number<min ,number>=(max+1));
+			}while(isNaN(number) || number<min  || number>=(max + 1));
+			return number;
+		}
+		var grade=askForNumber("What is your grade? ",0,100);
+		console.log(grade);
+	</script>
+</body>
+</html>

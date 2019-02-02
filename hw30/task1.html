@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hw30</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="tasks">
+			<div class="task1">
+				<h3>Задание 1</h3>
+				<p>
+					Создайте три объекта, описывающие ваши повседневные предметы (любые), или питомцев. У объектов должно быть как минимум по три свойства и как минимум один метод, возвращающий какое-то объединенное значение этих объектов.
+				</p>
+				<button onclick="task1()">Answer</button>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+var task1=function(){
+		var Book={
+			title: 'The Picture of Dorian Gray',
+			released_year: 2015,
+			total_page: 443,
+			getFullDescription:function(){
+				return this.title+' pages '+ this.total_page+' '+this.released_year;
+			}
+		};
+		console.log(Book.getFullDescription());
+
+		var Phone={
+			brand:'Sumsung',
+			model:'Grand Max',
+			battery:'9.63 Wh',
+			Ram:'16 GB',
+			camera:'16px',
+			buyed_price: 7000,
+			getFullDescription: function(){
+				return "My phone is :"+this.brand+'!';
+			}
+		};
+		console.log(Phone.getFullDescription());
+		var Sister={
+			name: 'Gulya',
+			surname: 'Orozalieva',
+			age: 55,
+			child: 'Ulan',
+			hasChild: function(){
+				return this.name+'\'s child is '+this.child;
+			}
+		}
+		console.log(Sister.hasChild());
+};
+	</script>
+</body>
+</html>

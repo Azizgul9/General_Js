@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hw30</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="tasks">
+			<div class="task5">
+				<h3>Задание 5</h3>
+				<p>
+					Необходимо создать объект, который будет представлять из себя лифт. У него должны быть методы: <br>
+					toFloor - принимает целое числовое значение от 1 до 16 - переместиться на определенный этаж. <br>
+					printFloor - печатает текущий этаж, на котором находится лифт <br>
+					upOneFloor - перемещает на один этаж вверх <br>
+					downOneFloor - перемещает на один этаж вниз <br>
+					Изначально лифт находится на первом этаже. <br>
+					Когда мы вызываем метод toFloor(), программа должна в консоли отобразить постепенное перемещение лифта на нужный этаж (только в этом методе). <br>
+					Пример: <br>
+					Elevator.toFloor(4); <br>
+					// Elevator is on the floor 1 <br>
+					// Elevator is on the floor 2 <br>
+					// Elevator is on the floor 3 <br>
+					// Elevator is on the floor 4 <br>
+					Elevator.toFloor(6); <br>
+					// Elevator is on the floor 4 <br>
+					// Elevator is on the floor 5 <br>
+					// Elevator is on the floor 6 <br>
+					Elevator.oneFloorUp(); 	<br>
+					Elevator.printFloor(); <br>
+					// Elevator is on the floor 7 <br>
+					Указания: <br>
+					Лифт должен хранить текущий этаж, на котором он находится. <br>
+					Для наглядности, вызовите метод toFloor несколько раз в программе.
+ <br>
+					Метод toFloor должен использовать методы oneFloorUp и oneFloorDown для перемещения по этажам, а также метод printFloor для вывода текущего этажа лифта.
+					В здании 16 этажей, нельзя, чтобы лифт мог уехать ниже первого или выше 16-го этажа.
+					Сдавать в виде HTML-файла
+				</p>
+				<button onclick="task5()">Answer</button>
+			</div>
+		</div>
+	</div>
+	<script>
+function task5(){
+		var Elevator={
+			floor: 1,
+			oneFloorUp: function(value){
+				while(this.floor<value){
+				console.log('Elevator is on the floor '+this.floor);
+				this.floor++;
+				if(this.floor===16){
+					break;
+				}
+			}
+			return this.floor;
+			},
+			oneFloorDown: function(value){
+				while(this.floor>value){
+				console.log('Elevator is on the floor '+this.floor);
+				this.floor--;
+				if(this.floor===1){
+					break;
+				}		
+			}
+			return this.floor;
+		},
+			toFloor: function(value){
+				if(value<this.floor){
+					 this.floor=this.oneFloorDown(value);
+				}
+				else if(value>this.floor){
+					this.floor=this.oneFloorUp(value);
+				}
+				return this.floor;
+			},
+			printFloor: function(){
+				return 'Floor '+ this.toFloor()+'! You\'ve reached your destination!';
+			}
+		
+	}
+
+	var toFloorUP=Elevator.toFloor(prompt('Enter your destination floor: '));
+	console.log(Elevator.printFloor());
+	var toFloorDown=Elevator.toFloor(prompt('Enter your destination floor: '));
+	console.log(Elevator.printFloor());
+}
+	</script>
+</body>
+</html>
