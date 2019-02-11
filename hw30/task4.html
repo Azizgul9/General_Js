@@ -34,17 +34,23 @@
 		</div>
 	</div>
 	<script>
-function task4(){
-		var initialList=['Aygul','Alina','Aysha'.'Akmaral','Altynay','Begayim','Hamina'];
+var task4=function() {
+	var initialList=['Aygul','Alina','Aysha','Akmaral','Altynay','Begayim','Hamina'];
+
 		var Host={
-			guestList: [];
-			setGuestList: function(initialList){
-				 Math.floor(Math.random() * initialList.length + 1)
+			guestList: [],
+			setGuestList: function(guests){
+				for(var i=0;i<guests.length;i++){
+					if(Math.random()<0.2){
+						this.guestList.push(guests[i]);
+					}
+				}
 			}
- //Ne znayu kak...
 		};
+
+		Host.setGuestList(initialList);
+		console.log(Host.guestList);// Day znat esli gde ne pravilno. Ok?
 }
 	</script>
-}
 </body>
 </html>
