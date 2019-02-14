@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hw33</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="task2 task ">
+		<h3>Задание 2</h3>
+		На странице есть верстка
+		<div class="element">Element 1</div>
+
+		<div class="element">Element 2</div>
+
+		<div class="element">Element 3</div>
+
+		<div class="element">Element 4</div>
+
+		<div class="element">Element 5</div>
+
+		<div class="element">Element 6</div>
+		С помощью JS необходимо первым трем элементам задать красный цвет текста, а остальным трем - зеленый. <br>
+		<button onclick="task2()">result</button>
+		</div>
+	</div>
+	<script>
+		function task2(){
+			var elements=document.getElementsByClassName('element');
+			for(var i=0;i<elements.length;i++){
+				if(i<3){
+					elements[i].style.color='red';
+				}
+				else{
+					elements[i].style.color='green';
+				}
+			}
+		}
+	</script>
+</body>
+</html>

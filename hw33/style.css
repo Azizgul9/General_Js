@@ -13,10 +13,11 @@ body{
     margin: 0 auto;
     text-align: center;
 }
-.tasks{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+.task,#task{
+    background: #fff;
+    border-radius:2%;
+    padding: 4%;
+    margin: 5%;
 }
 button{
     padding: 2%;

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hw33</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<div id="task">
+			<h3>Задание 6</h3>
+			Напишите программу для создания списка задач, которые будет вводить пользователь: <br>
+			Для каждого пункта: <br>
+			Запрашивайте содержимое пункта у пользователя с помощью prompt. <br>
+			Создавайте пункт и добавляйте его к UL. <br>
+			Процесс прерывается, когда пользователь нажимает "Отмена" или вводит пустую строку. <br>
+			Commit hash: <br>
+			<button onclick="task6()">result</button>
+		</div>
+	</div>
+	<script>
+		function task6(){
+		var ul=document.createElement('ul');
+		while(true){
+			var li=document.createElement('li');
+			li.innerHTML=prompt("enter anything,please: ");
+			if(li.innerHTML===null || !li.innerHTML){
+				break;
+			}
+			ul.appendChild(li);
+		}
+		var task=document.getElementById('task');
+		console.log(task);
+
+		task.appendChild(ul);
+	}
+	</script>
+</body>
+</html>

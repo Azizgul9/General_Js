@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hw33</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="task">
+			На странице есть контейнер  todo-list
+			<ol id="todo-list"></ol>
+			, необходимо с помощью цикла добавить в него пять задач (элементов li) с классом task и текстом, взятым из массива задач из пяти элементов:	<br>
+				var tasks = ['Buy lemonade', 'Make toasts', 'Repair car', 'Play games', 'Pet a cat']; <br>
+				<button onclick="task3()">result</button>
+			</div>
+		</div>
+		<script>
+			function task3(){
+			var tasks = ['Buy lemonade', 'Make toasts', 'Repair car', 'Play games', 'Pet a cat'];
+			var todo_list=document.getElementById('todo-list');
+			for(var i=0;i<tasks.length;i++){
+				var li=document.createElement('li');
+				li.className='task';
+				li.innerHTML=tasks[i];
+				todo_list.appendChild(li);
+			}
+}
+		</script>
+	</body>
+	</html>

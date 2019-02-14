@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hw33</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="task">
+			<h3>Задание 5</h3>
+			Дана такая разметка:
+			<div id="cart-items">
+				<div class="item">Milk 1 l.<span class="qty"> x 2</span></div>
+				<div class="item">Cola 1.5 l. <span class="qty"> x 1</span></div>
+				<div class="item">Bread<span class="qty"> x 2</span></div>
+				<div class="item">Cheese<span class="qty"> x 1</span></div>
+				<div class="item">Chocolate bar<span class="qty"> x 3</span></div>
+			</div>
+			Необходимо с помощью JavaScript удалить элемент "Cola 1.5 l" и заменить товар "Chocolate bar" на "Canned Fish", количеством 4 штуки. <br>
+			Указания: <br>
+			Для удаления использовать .remove()
+			Для замены использовать .replaceChild()
+			Подразумевается, что вышеуказанная разметка находится внутри тега  body. <br>
+				<button onclick="task5()">result</button>
+			</div>
+		</div>
+		<script>
+			function task5(){
+			var items=document.getElementById('cart-items');
+			items.children[1].remove();
+
+			var quantity=document.createElement('span');
+			quantity.className='qty';
+			quantity.innerHTML=' x 4';
+
+			var newItem=document.createElement('div');
+			newItem.className='item';
+			newItem.innerHTML='Canned fish';
+			newItem.appendChild(quantity);
+			console.log(newItem);
+		
+			items.replaceChild(newItem,items.children[3]);
+			//items.replaceChild(newItem,items.lastChild);
+			}
+		</script>
+	</body>
+	</html>
