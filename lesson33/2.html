@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<ol id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ol>
+<script>
+    var newLi=document.createElement('li');
+    newLi.innerHTML='Just passing by!';
+
+    var list=document.getElementById('list');
+
+    var someLi=list.children[1];
+    list.insertBefore(newLi,someLi);
+</script>
+</body>
+</html>
