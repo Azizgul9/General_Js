@@ -29,10 +29,13 @@
 			<script>
 				function task4(){
 					var p=document.getElementsByTagName('p');
-					for(var i=0;i<p.length;i++){
+					Array.from(p).forEach(function(item){
 						var hr=document.createElement('hr');
-						p[i].appendChild(hr);
-					}
+						p[item].appendChild(hr);
+					})
+				/*	for(var i=0;i<p.length;i++){
+						
+					}*/
 				}
 			</script>
 		</body>

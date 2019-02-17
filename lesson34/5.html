@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="container"></div>
+    <script>
+        var newDiv=$('<div class="item">samsung galaxy s6 <b> x 1</b></div>');
+
+        var another=$('<div>');
+        another.html('I am another div');
+        var container=$('#container');
+        container.append(newDiv);
+        container.prepend(another);
+    </script>
+</body>
+</html>
