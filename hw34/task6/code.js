@@ -4,7 +4,7 @@ var task6=function(){
         color:['blue','yellow','green','red','black'],
         colorRendom:function(){
             var l=this.color;
-            var colorNum=Math.floor(Math.random()*l.length)+1;
+            var colorNum=Math.floor(Math.random()*l.length);
             return (this.color[colorNum]);
         },
         diametr:function(max,min){
@@ -25,13 +25,13 @@ var task6=function(){
     };
 
     
-    var  drawCircles=function(quantity){
+    var  drawCircles=function(quantity,maxD,minD){
         var body=$('body');
         for (var i=0;i<quantity;i++){
 
             var circleColor=Circle.colorRendom();
             console.log(circleColor);
-            var circleDiametr=Circle.diametr(200,50);
+            var circleDiametr=Circle.diametr(maxD,minD);
             var circlePosX=Circle.positionX();
             var circlePosY=Circle.positionY();
 
@@ -41,7 +41,6 @@ var task6=function(){
             circle.css({
                 display: 'inline-block',
                 borderRadius: '50%',
-                border:' 1px solid #000',
                 backgroundColor:circleColor,
                 width:circleDiametr,
                 height:circleDiametr,
@@ -51,5 +50,5 @@ var task6=function(){
             body.append(circle);
         }
     };
-    drawCircles(20);
+    drawCircles(20,200,50);
 };
