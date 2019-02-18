@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.3.1.js"></script>
+    <title>hw34.3</title>
+</head>
+<body>
+    <div id="container">
+        <div class="task">
+            <h3>Задание 3(33.5)</h3>
+            <p>
+                Дана такая разметка:
+                <div id="cart-items">
+                    <div class="item">Milk 1 l.<span class="qty">x 2</span></div>
+                    <div class="item">Cola 1.5 l. <span class="qty">x 1</span></div>
+                    <div class="item">Bread<span class="qty">x 2</span></div>
+                    <div class="item">Cheese<span class="qty">x 1</span></div>
+                    <div class="item">Chocolate bar<span class="qty">x 3</span></div>
+                </div>
+                Необходимо с помощью JavaScript удалить элемент "Cola 1.5 l" и заменить товар "Chocolate bar" на "Canned Fish", количеством 4 штуки.
+                Указания:
+                Для удаления использовать .remove()
+                Для замены использовать .replaceChild()
+                Подразумевается, что вышеуказанная разметка находится внутри тега <body>.
+                </p>
+                <button onclick="task3()">result</button>
+            </div>
+        </div>
+        <script>
+            var task3=function(){
+
+            var items=$('.item');
+            console.log(items);
+            items[1].remove();
+
+            var newItem=$('<div>');
+            newItem.addClass('item');
+            newItem.html('Canned Fish');
+
+            var newqua=$('<span>');
+            newqua.addClass('qty');
+            newqua.html('x 4');
+
+
+            };
+        </script>
+    </body>
+    </html>

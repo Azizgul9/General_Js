@@ -1,0 +1,53 @@
+<!doctype html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="style.css">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+	<title>HW34.1</title>
+</head>
+<body>
+	<div id="container">
+		<div class="task">
+			<h3>Задание 1</h3>
+			<p>
+				На странице есть верстка:
+				<div id="string-1">Ядра в вёдра, выдру в тундру!</div>
+				<div id="string-2">Выдрав с выдры в тундре гетры</div>
+				<div id="string-3">В недрах тундры, выдры в гетрах </div>
+				<div id="string-4">Вытру гетрой выдре морду </div>
+				<div id="string-5">Тырят в вёдра ядра кедров!</div>
+				<div id="string-6">Вытру выдрой ядра кедров</div>
+				Необходимо поочередно обратиться к каждому тэгу в нужном порядке, и вывести их содержимое в консоль, чтобы получилась осмысленная скороговорка. <br>
+				Вывод в консоли: <br>
+				В недрах тундры, выдры в гетрах <br>
+				Тырят в вёдра ядра кедров! <br>
+				Выдрав с выдры в тундре гетры <br>
+				Вытру выдрой ядра кедров <br>
+				Вытру гетрой выдре морду <br>
+				Ядра в вёдра, выдру в тундру! 
+			</p>
+			<button onclick="task1()">respond</button>
+		</div>
+	</div>
+	<script>
+		var task1=function(){
+			var end=$('#string-1').html();
+			console.log(end);
+			$('#string-1').html($('#string-3').html());
+			$('#string-3').html($('#string-2').html());
+			$('#string-2').html($('#string-5').html());
+			$('#string-5').html($('#string-4').html());
+			$('#string-4').html($('#string-6').html());
+			$('#string-6').html(end);
+		};
+	</script>
+</body>
+</html>

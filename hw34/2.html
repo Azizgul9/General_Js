@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.3.1.js"></script>
+    <title>hw34.2</title>
+</head>
+<body>
+    <div id="container">
+        <div class="task">
+            <h3>Задание 2(33.3)</h3>
+            <p>
+                На странице есть контейнер <br>
+                <ol id="todo-list"></ol>,
+                необходимо с помощью цикла добавить в него пять задач (элементов li) с классом task и текстом,
+                взятым из массива задач из пяти элементов: <br>
+                    var tasks = ['Buy lemonade', 'Make toasts', 'Repair car', 'Play games', 'Pet a cat'];
+                </p>
+                <button onclick="task2()">result</button>
+            </div>
+        </div>
+        <script>
+            var task2=function(){
+                var tasks = ['Buy lemonade', 'Make toasts', 'Repair car', 'Play games', 'Pet a cat'];
+                var todoList=$('#todo-list');
+                for(var i=0;i<tasks.length;i++){
+                    var task=$('<li>');
+                    task.addClass('task');
+                    task.html(tasks[i]);
+                    todoList.append(task);
+                }
+            };
+        </script>
+    </body>
+    </html>
