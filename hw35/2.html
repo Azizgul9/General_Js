@@ -35,9 +35,9 @@
     <script>
 
         var createItem=function() {
-            var newItem = $('<div>');
+            var newItem = $('<span>');
             newItem.addClass('element');
-            newItem.html(Math.floor(Math.random() * 20));
+            newItem.html(Math.floor(Math.random() * 20)+',');
             $('#container').append(newItem);
         };
 

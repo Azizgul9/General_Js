@@ -19,6 +19,9 @@ body{
     padding: 4%;
     margin: 5%;
 }
+span{
+    padding: 2%;
+}
 #seconds{
     background: #cccccc;
     color: chartreuse;
