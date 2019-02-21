@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <title>hw35.4</title>
+</head>
+<body>
+<div id="container">
+    <div class="task">
+        <h3>Задание 4</h3>
+        <p> На странице есть верстка: <br>
+            <input type="text" class="user"><input type="password" id="password"><input type="button" class="btn">
+            Необходимо написать jQuery-код, который делает кнопку
+            "Log in" активной, только если в поля username и password введены строки не меньше 6 символов длиной.
+            При нажатии на кнопку "Log in" нужно отобразить alert со введенными данными и не перезагружать страницу.
+            Указания: Использовать событие "change" или "keyup" для отслеживания длины строк.
+            Событие change срабатывает у элемента input, когда пользователь меняет в нем текст, а затем меняет фокус на другой элемент
+            (например, кликнуть куда-то вне страницы, или перемещается на другой input.
+            Событие keyup срабатывает у элемента input всякий раз когда пользователь нажимает и затем отпускает кнопку на клавиатуре
+            при вводе текста в это текстовое поле.
+            Пример: $('input[name="username"]').on('keyup', function() { console.log('some key was pressed and released'); });
+            Активность элемента изменять через атрибут disabled. Чтобы включить, передаете true. Чтобы выключить - false. </p>
+    </div>
+</div>
+</body>
+</html>

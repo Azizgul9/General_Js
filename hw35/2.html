@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <title>hw35.2</title>
+</head>
+<body>
+    <div id="container">
+        <div class="task">
+            <h3>Задание 2 </h3>
+            <p>На странице есть верстка: <br>
+                Start | Stop Необходимо написать функцию, которая каждые пять секунд будет добавлять в контейнер тег
+                с классом element, текст элемента - случайное число от 0 до 20. <br>
+                Результат в инспекторе после 15-ти секунд (числа случайны и могут не совпадать с вашими): <br>
+                4 <br>
+                10 <br>
+                8 <br>
+                Указания: При нажатии на ссылку "Stop" элементы должны прекратить добавляться При нажатии на ссылку "Start" элементы
+                должны снова начать добавляться
+                При запуске программы сделать, чтобы элементы начали добавляться.
+                Использовать событие DOMReady и разместить код программы в , либо вынести в отдельный файл и подключить в
+            </p>
+            <button class="Start">Start</button>
+            <button class="Stop">Stop</button>
+        </div>
+    </div>
+    <script>
+
+        var createItem=function() {
+            var newItem = $('<div>');
+            newItem.addClass('element');
+            newItem.html(Math.floor(Math.random() * 20));
+            $('#container').append(newItem);
+        };
+
+        var createIntervalElement=function() {
+            var interval = setInterval(function () {
+                createItem();
+                $('.Stop').on('click', function () {
+                    clearInterval(interval);
+                });
+            }, 5000);
+        }
+
+        $(document).ready(createIntervalElement);
+        $('.Start').on('click', createIntervalElement);
+
+    </script>
+</body>
+</html>

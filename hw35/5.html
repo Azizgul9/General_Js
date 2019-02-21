@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <title>hw35.5</title>
+</head>
+<body>
+<div id="container">
+    <div class="task">
+        <h3>Задание 5 (дополнительное, необязательное)</h3>
+        <p> На странице есть верстка: <br>
+            Висит груша - нельзя скушать. Лампочка <br>
+            С луком с яйцами, но не пирожок? Робин Гуд <br>
+            Один глаз, один рог, но не носорог?
+            Корова из-за угла выглядывает <br>
+            Необходимо создать функцию, при вызове которой через jQuery добавятся кнопки
+            "Посмотреть ответ" к каждому вопросу, при нажатии на которую соответствующий
+            элемент .answer отобразится, а при повторном нажатии - скроется.
+            Указания: Для отображения и скрытия элементов можно использовать методы .hide() и .show(),
+            а также метод .toggle() Для того, чтобы найти "текущий" элемент, в функции-обработчике
+            события можно воспользоваться словом this: var currentElement = $(this);
+            Еще можно использовать анимацию для скрытия и показа элементов В этом задании вы можете модифицировать верстку как угодно,
+            чтобы вам было удобнее находить элементы
+        </p>
+        <p>
+        <div class="element">Висит груша - нельзя скушать.</div>
+        <div class="element"> С луком с яйцами, но не пирожок?</div>
+        <div class="element"> Один глаз, один рог, но не носорог?</div>
+        </p>
+        <button></button>
+    </div>
+</div>
+</body>
+</html>
