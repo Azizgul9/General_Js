@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <title>lesson35</title>
+    <style>
+        #tail{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            background:red;
+
+        }
+    </style>
+        </head>
+<body>
+
+<div id="tail">
+</div>
+<script>
+   $('html').on('mousemove',function(event){
+       $('#tail').css({
+           left:event.clientX,
+           top:event.clientY
+       });
+   });
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+<div id="seconds">00</div>
+<script>
+    var zeroPad=function(number,zeros){
+        var currentNumber=String(number);
+        var currentLength=currentNumber.length;
+        for(var i=0;i<zeros-currentLength;i++){
+            currentNumber='0'+currentNumber;
+        }
+        return currentNumber;
+    };
+
+    var seconds=$('#seconds');
+
+    setInterval(function () {
+       var value=parseInt(seconds.text());
+       value++;
+       seconds.text(zeroPad(value,2));
+
+    },1000);
+</script>
+</body>
+</html>

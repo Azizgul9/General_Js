@@ -20,12 +20,13 @@ body{
     margin: 5%;
 }
 span{
-    padding: 2%;
+    padding: 10px;
 }
-#seconds{
+#seconds,#minutes,#dash{
     background: #cccccc;
     color: chartreuse;
     font-weight: bolder;
+    font-size: 20px;
 }
 button{
     padding: 2%;

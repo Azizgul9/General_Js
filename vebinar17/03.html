@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <title>dz34.5(review)</title>
+    <script>
+        var createChessBoard=function (cellNumber) {
+            var cellSIze=20;
+            var containerSize=cellSIze*cellNumber;
+            var container=$('<div>').css({width:containerSize,height:containerSize});
+
+            var firstColor='white';
+            var secondColor='black';
+
+            for(var i=0;i<cellNumber;i++){
+                if(i%2==1){
+                    firstColor='black';
+                    secondColor='white';
+                }
+                else{
+                    firstColor='white';
+                    secondColor='black';
+                }
+                for(var j=0;j<cellNumber;j++){
+                var element=$('<div>').css({width:cellSIze,height:cellSIze,float:'left'});
+
+                if(j%2==0){
+                    element.css({'background':firstColor});
+                }
+                else{
+                    element.css({'background':secondColor});
+                }
+                container.append(element);
+            }
+            }
+            return container;
+        };
+    </script>
+</head>
+<body>
+<div id="chess"></div>
+Number of cells: <input type="number" value="8" id="cells-number">
+<button id="create-board">Create chessboard</button>
+<script>
+    var createBtnBoard=$('#create-board');
+    var cellsNumberInput=$('#cells-number');
+    var chessContainer=$('#chess');
+   createBtnBoard.on('click',function () {
+       var cells=parseInt(cellsNumberInput.val());
+       //console.log(cells);
+       if(cells>0){
+           var board=createChessBoard(cells);
+           chessContainer.html('');
+           chessContainer.append(board);
+       }
+   })
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="container">
+<a href="http://google.com" id="google-link">Google</a>
+    <button class="btn">click me!</button>
+    <button class="btn">click me!</button>
+    <button class="btn">click me!</button>
+    <button class="btn">click me!</button>
+    <button class="btn">click me!</button>
+    <button class="btn">click me!</button>
+</div>
+<script>
+    var link=document.getElementById('google-link');
+    link.addEventListener('click',function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('click on link');
+        console.log(event);
+    });
+   /* var container=document.getElementById('container');
+    container.addEventListener('click',function(){
+       console.log('clicked on container!');
+    });*/
+
+    var btns=document.getElementsByClassName('btn');
+   /* for(var btn of btns){
+    btn.addEventListener('click',function () {
+       console.log('button is clicked');
+    });
+    }*/
+    Array.from(btns).forEach(function (btn) {
+        btn.addEventListener('click',function () {
+            console.log('button is clicked');
+        });
+    });
+
+</script>
+</body>
+</html>
