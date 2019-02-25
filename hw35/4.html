@@ -10,6 +10,7 @@
             src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous"></script>
+    <script src="jquery-3.3.1.js"></script>
     <title>hw35.4</title>
 </head>
 <body>
@@ -17,7 +18,11 @@
     <div class="task">
         <h3>Задание 4</h3>
         <p> На странице есть верстка: <br>
-            <input type="text" class="user"><input type="password" id="password"><input type="button" class="btn">
+        <from>
+        <div style="margin: 20px">User:<input type="text" id="user"></div>
+        <div style="margin: 20px">Password:<input type="password" id="password"></div>
+        <div style="margin: 20px"><button class="btn">Log in</button></div>
+        </from>
             Необходимо написать jQuery-код, который делает кнопку
             "Log in" активной, только если в поля username и password введены строки не меньше 6 символов длиной.
             При нажатии на кнопку "Log in" нужно отобразить alert со введенными данными и не перезагружать страницу.
@@ -31,7 +36,48 @@
     </div>
 </div>
 <script>
+    $('document').ready( function() {
+        var user = $('#user');
+        var password = $('#password');
 
+        var btn = $('.btn');
+        btn.css({
+            background: '#ccc',
+            padding: '10px',
+            borderRadius: '4px',
+            border: 'none',
+            color:'gold'
+        });
+
+        var active;
+
+        user.on('keyup', function () {
+            var uLen = user.val().length;
+            var pLen = password.val().length;
+            console.log(uLen);
+            console.log(pLen);
+            if (uLen < 6 && pLen<6) {
+                active=false;
+            }
+            else if (uLen >6 && pLen>6){
+                active = true;
+                btn.css({background: '#345678'});
+            }
+            console.log(active);
+        });
+
+        btn.on('click', function (e) {
+            if (active) {
+                console.log(active);
+                alert("user : " + user.val() + " \n password : " + password.val());
+                e.preventDefault();
+            }
+            else if(!active){
+
+                alert("user : " + user.val() + " \n password : " + password.val());
+            }
+        });
+    });
 </script>
 </body>
 </html>

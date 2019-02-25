@@ -28,15 +28,54 @@
             а также метод .toggle() Для того, чтобы найти "текущий" элемент, в функции-обработчике
             события можно воспользоваться словом this: var currentElement = $(this);
             Еще можно использовать анимацию для скрытия и показа элементов В этом задании вы можете модифицировать верстку как угодно,
-            чтобы вам было удобнее находить элементы
+            чтобы вам было удобнее находить элементы.
         </p>
         <p>
-        <div class="element">Висит груша - нельзя скушать.</div>
-        <div class="element"> С луком с яйцами, но не пирожок?</div>
-        <div class="element"> Один глаз, один рог, но не носорог?</div>
+        <div class="element">
+        <p class="riddle">Висит груша - нельзя скушать.</p>
+        <p class="hint">Лампочка</p>
+    </div>
+        <div class="element">
+            <p class="riddle">С луком с яйцами, но не пирожок? </p>
+            <p class="hint">Робин Гуд</p>
+        </div>
+        <div class="element">
+            <p class="riddle">Один глаз, один рог, но не носорог?</p>
+            <p class="hint"> Корова из-за угла выглядывает</p>
+        </div>
         </p>
-        <button></button>
     </div>
 </div>
+<script>
+    var elements=$('.element');
+    var hints=$('.hint').hide();
+
+    for(var i=0;i<elements.length;i++){
+        var element=$(elements[i]);
+        element.css({
+            padding:'5%',
+            background: '#923151',
+            margin: '2%'
+        });
+
+        var btn=$('<button>');
+        btn.addClass('btn');
+        btn.text('Просмотреть ответ');
+
+        var br=$('<br>');
+       element.append(br,btn);
+    }
+
+
+    var  button=$(this);
+    button.on('click',function(){
+        console.log(hints);
+        hints.toggle();
+    });
+
+
+
+
+</script>
 </body>
 </html>
