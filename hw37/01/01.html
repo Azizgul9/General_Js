@@ -11,6 +11,8 @@
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="js/jquery-ui.css">
+    <script src="js/jquery-ui.js"></script>
 </head>
 <body>
     <div id="container">
@@ -61,18 +63,25 @@
                        capital.html(response[i].capital);
 
                        var img= $('<img>').attr('src', response[i].flag);
-                       //img.html();
                        flag.html(img);
 
                    }
                });
+
                taker.fail(function () {
-                   alert('Error');
+                   var ms=$('<div>').text("Not Found");
+                   ms.dialog({
+                       modal: true,
+                       title: "THE SERVER",
+                       buttons: {
+                           Ok: function() {
+                               $( this ).dialog( "close" );
+                           }
+                       }
+                   });
                })
 
            });
-
-
 
 
        });

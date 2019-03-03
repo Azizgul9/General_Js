@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../style.css">
+    <title>hw37.2</title>
+</head>
+<body>
+<div id="container">
+    <div class="task">
+        <h3>Задание 2</h3>
+        Используя API списка всех стран выведите таблицу с информацией о всех странах наподобие
+        такой: <br>
+        <img src="template.png" alt="example"> <br>
+        API всех стран: https://restcountries.eu/rest/v2/all <br>
+        Дополнительно: <br>
+        Используйте плагин jQuery для построения таблиц с поиском и сортировкой( + дополнительные баллы)
+        <table id="myTable">
+            <thead>
+            <tr>
+                <th>Code</th>
+                <th>Flag</th>
+                <th>Name</th>
+                <th>Capital</th>
+                <th>Population</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        var tdMaker=function(c){
+            for(var i=0;i<c.length;i++){
+                var td=$('<td>');
+
+            }
+        };
+        $.ajax({
+            method:'GET',
+            url: 'https://restcountries.eu/rest/v2/all',
+            success: function (response) {
+                for(var i=0;i<response.length;i++){
+                    var tr=$('<tr>');
+                    var countryIdentifyer= [response[i].alpha2Code,response[i].flag, response[i].name,response[i].capital, response[i].population
+                    ];
+
+                    console.log(response[i].alpha2Code);
+                    for(var j=0;j<countryIdentifyer.length;j++){
+                        var td=$('<td>');
+                        if(j===1){
+                            var img= $('<img>').attr('src', response[i].flag);
+                            img.css({width:'50px',height:'50px'});
+                            tr.append(img);
+                            j++;
+                        }
+                        td.text(countryIdentifyer[j]);
+                        tr.append(td);
+                    }
+                    $('tbody').append(tr);
+                }
+            },
+            error:function () {
+                alert("Some error");
+            }
+        });
+    });
+</script>
+</body>
+</html>
