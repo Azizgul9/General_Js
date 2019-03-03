@@ -66,12 +66,15 @@
        element.append(br,btn);
     }
 
+    Array.from(hints).forEach(function (hint) {
+        var  btn=$('.btn');
+        btn.on('click',function(e){
+            hint.toggle();
 
-    var  button=$(this);
-    button.on('click',function(){
-        console.log(hints);
-        hints.toggle();
+        });
     });
+
+
 
 
 
