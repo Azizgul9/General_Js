@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div id="container">
+        <div class="task">
+        <h3>Задание 1</h3>
+        Дана верстка (как пример):
+        <p><b>Name: </b><span id="name"></span></p>
+        <p><b>Region: </b><span id="region"></span></p>
+        <p><b>Subregion: </b><span id="subregion"></span></p>
+        <p><b>Capital: </b><span id="capital"></span></p>
+        <p><b>Flag: </b><span id="flag"></span></p>
+            <input id="country-name" type="text">
+            <button id="show">Show information</button>
+        <h4>Уровень 1</h4>
+        Необходимо вывести в указанные поля информацию по выбранной вами стране (любой) с
+        помощью API
+        https://restcountries.eu/rest/v2/name/{name}
+        Где {name} - любое имя из списка:
+        <h4>Уровень 2 </h4>
+        Используя дополнительное поле ввода (пример верстки см. ниже) выведите информацию по
+        введенной в поле стране после нажатия на кнопку.
+        Если пользователь введет неверную страну (сервер вернет 404), отобразить сообщение об
+        ошибке с помощью alert
+        Дополнительная информация:
+        Для создания картинки используйте создание img элемента с атрибутом src,
+        например: $('img').attr('src', 'http://via.placeholder.com/350x150');
+        Используйте плагин для замены стандартного alert
+        </div>
+    </div>
+    <script>
+       $(function () {
+           var name=$('#name');
+           var region=$('#region');
+           var subregion=$('#subregion');
+           var capital=$('#capital');
+           var flag=$('#flag');
+           var show=$('#show');
+
+           show.on('click',function () {
+               var country=$('#country-name').val();
+               var url="https://restcountries.eu/rest/v2/name/"+country;
+
+               var taker=$.get(url,function (response) {
+                   for(var i=0;i<response.length;i++){
+                       name.html(name.html()+response[i].name);
+                       region.html(response[i].region);
+                       subregion.html(response[i].subregion);
+                       capital.html(response[i].capital);
+
+                       var img= $('<img>').attr('src', response[i].flag);
+                       //img.html();
+                       flag.html(img);
+
+                   }
+               });
+               taker.fail(function () {
+                   alert('Error');
+               })
+
+           });
+
+
+
+
+       });
+    </script>
+</body>
+</html>

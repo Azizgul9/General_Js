@@ -48,10 +48,12 @@
 </div>
 <script>
     var elements=$('.element');
-    var hints=$('.hint').hide();
+    var hints=$('.hint');
 
     for(var i=0;i<elements.length;i++){
         var element=$(elements[i]);
+        var hint=$(hints[i]);
+        hint.hide();
         element.css({
             padding:'5%',
             background: '#923151',
@@ -66,18 +68,13 @@
        element.append(br,btn);
     }
 
-    Array.from(hints).forEach(function (hint) {
-        var  btn=$('.btn');
-        btn.on('click',function(e){
+    var answer=$('.btn');
+    for(var j=0;j<answer.length;j++){
+        $(answer[j]).on('click',function () {
+            var hint=$(hints[j]);
             hint.toggle();
-
         });
-    });
-
-
-
-
-
+    }
 
 </script>
 </body>

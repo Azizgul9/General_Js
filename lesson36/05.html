@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <title>lesson36</title>
+    <script>
+        var data = {
+            "Рыбы": {
+                "Форель": {},
+                "Щука": {}
+            },
+            "Деревья": {
+                "Хвойные": {
+                    "Лиственница": {},
+                    "Ель": {}
+                },
+                "Цветковые": {
+                    "Берёза": {},
+                    "Тополь": {}
+                }
+            }
+        };
+        var getList = function(data) {
+            var list = "";
+            for (var key in data) {
+                list += '<li>' + key;
+                var hasSubItems = Object.keys(data[key]).length > 0;
+                if (hasSubItems) {
+                    list += getList(data[key]);
+                }
+                list += '</li>';
+            }
+            return '<ul>' + list + '</ul>';
+        };
+
+        $(function () {
+            var list=getList(data);
+            $('body').append(list);
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>
