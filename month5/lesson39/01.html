@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <title>Lesson39</title>
+</head>
+<style>
+    #country {
+        position: relative; margin: 20px; padding: 10px;
+    }
+    #preloader {
+        position: absolute; top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.3) url('5.gif') 50% 50% no-repeat;
+        display: none; // по умолчанию прячем элемент
+    }
+</style>
+<body>
+<div id="country">
+    <div id="preloader"></div>
+    <p><b>Name:</b><span id="name"></span></p>
+    <p><b>Capital:</b><span id="capital"></span></p>
+</div>
+<script>
+    var printCountry=function (response) {
+        var country=response[0];
+        $('#name').text(country.name);
+        $('#capital').text(country.capital);
+       // preloader.hide();
+    };
+
+    var preloader=$('#preloader');
+    //preloader.show();
+
+    $(document).ajaxStart(function () {
+        preloader.show();
+    });
+    $(document).ajaxStop(function(){
+        preloader.hide();
+    });
+
+    $.ajax({
+        method: 'GET',
+        url: "https://restcountries.eu/rest/v2/name/Kyrgyzstan",
+       /* beforeSend:function(){
+            preloader.show();
+        },
+        complete: function(){ preloader.hide();
+        },*/
+        success: printCountry
+    });
+
+</script>
+</body>
+</html>

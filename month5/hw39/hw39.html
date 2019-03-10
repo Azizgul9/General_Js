@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>InfoPortal</title>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div id="container">
+    <b>API URL:</b>
+    <pre id="reqObject"></pre>
+
+
+    <img id="apod_img_id" width="250px"/>
+
+    <iframe id="apod_vid_id" type="text/html" width="640" height="385" frameborder="0"></iframe>
+    <p id="copyright"></p>
+
+    <h3 id="apod_title"></h3>
+    <p id="apod_explaination"></p>
+    <br/>
+    <b>Return Object:</b>
+    <pre id="returnObject"></pre>
+</div>
+</body>
+<script>
+    $(function(){
+        var url='https://api.nasa.gov/planetary/apod?api_key=b1zgdsfMYs5bwZCP4DP8qGqLjBbgufkZN33LGHIm';
+        $.ajax({
+            url: url,
+            success: function(result){
+                if("copyright" in result) {
+                    $("#copyright").text("Image Credits: " + result.copyright);
+                }
+                else {
+                    $("#copyright").text("Image Credits: " + "Public Domain");
+                }
+
+                if(result.media_type == "video") {
+                    $("#apod_img_id").css("display", "none");
+                    $("#apod_vid_id").attr("src", result.url);
+                }
+                else {
+                    $("#apod_vid_id").css("display", "none");
+                    $("#apod_img_id").attr("src", result.url);
+                }
+                $("#reqObject").text(url);
+                $("#returnObject").text(JSON.stringify(result, null, 4));
+                $("#apod_explaination").text(result.explanation);
+                $("#apod_title").text(result.title);
+            }
+        });
+
+    });
+</script>
+</html>

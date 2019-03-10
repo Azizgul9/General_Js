@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="result">
+
+</div>
+<script>
+    var menuData = {
+        "Рыбы": {
+            "Форель": {},
+            "Щука": {}
+        },
+        "Деревья": {
+            "Хвойные": {
+                "Лиственница": {},
+                "Ель": {}
+            },
+            "Цветковые": {
+                "Берёза": {},
+                "Тополь": {}
+            }
+        }
+    };
+
+    var createList=function(data){
+        var list='<ul>';
+
+        for(var key in data){
+            list+='<li>'+key;
+
+            if(Object.keys(data[key]).length>0){
+                //list is not empty
+               list+=createList(data[key]);
+            }
+
+            list+='</li>';
+        }
+        list+='</ul>';
+        return list;
+    };
+
+    var html=createList(menuData);
+
+    document.getElementById('result').innerHTML=html;
+</script>
+</body>
+</html>
