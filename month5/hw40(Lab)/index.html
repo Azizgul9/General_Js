@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="fonts/fontawsome/css/minefontawesome.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="jquery-ui/jquery-ui.css">
+    <link rel="stylesheet" href="autocomplete/easy-autocomplete.css">
+    <script src="autocomplete/jquery.easy-autocomplete.js"></script>
+    <script src="jquery-ui/jquery-ui.js"></script>
+    <title>Lab40</title>
+</head>
+<body>
+<div id="container">
+    <div class="message-block">
+        <p class="info_content"><span class="post_id"></span><span class="flag"></span><a href="#" class="remove">Remove</a></p>
+        <p class="message_content"></p>
+    </div>
+    <hr>
+    <div class="start-message clearfix">
+        <div class="set_date ">
+            <div class="wrap-field">
+            <input type="text" id="country">
+            </div>
+            <div class="wrap-field">
+            <input id="datepicker">
+            </div>
+        </div>
+        <div class="send_message_block">
+                <textarea name="some_message" id="message" cols="30" rows="10"></textarea>
+                <button class="send_message"></button>
+        </div>
+    </div>
+</div>
+<script>
+    $( function() {
+        //Date picker
+        $( "#datepicker" ).datepicker();
+
+
+        $('.send_message').on('click',function() {
+
+                var message=$('.message_content');
+
+                var country=$('#country').val();
+                var url="https://restcountries.eu/rest/v2/name/"+country;
+
+                var taker=$.get(url,function (response) {
+                    for(var i=0;i<response.length;i++){
+                        $('.post_id').html(response[i].name);
+                        var img= $('<img>').attr('src', response[i].flag);
+                        $('.flag').html(img);
+                    }
+                });
+                $('.message_content').text($('#message').val());
+                
+                localStorage.setItem(keep,message_block);
+
+
+
+        }
+        );
+
+
+
+        // Autocomplete
+        $.getJSON('https://restcountries.eu/rest/v2/all?fields=name;flag', function(countries) {
+            var options = {
+                data: countries,
+                getValue: "name",
+                template: {
+                    type: "iconLeft",
+                    fields: {
+                        iconSrc: "flag"
+                    }
+                },
+                theme: "square",
+                list: {match: {enabled: true}},
+            };
+            $("#country").easyAutocomplete(options);
+        }
+        );
+
+    } );
+</script>
+</body>
+</html>

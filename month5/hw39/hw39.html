@@ -10,10 +10,22 @@
             src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous"></script>
+    <style>
+        #container{
+            position: relative;
+        }
+        #preloader{
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.3) url('103.gif') 50% 50% no-repeat;
+            display: none; // по умолчанию прячем элемент
+        }
+    </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 <div id="container">
+    <div id="preloader"></div>
     <b>API URL:</b>
     <pre id="reqObject"></pre>
 
@@ -33,6 +45,15 @@
 <script>
     $(function(){
         var url='https://api.nasa.gov/planetary/apod?api_key=b1zgdsfMYs5bwZCP4DP8qGqLjBbgufkZN33LGHIm';
+
+        var preloader=$('#preloader');
+
+        $(document).ajaxStart(function () {
+            preloader.show();
+        });
+        $(document).ajaxStop(function(){
+            preloader.hide();
+        });
         $.ajax({
             url: url,
             success: function(result){
