@@ -18,7 +18,7 @@
 
         alertContainer.append(alertTitle, $('<hr>'), alertMessage, alertButton);
         this.append(alertContainer);
-        this.css({'backround':'rgba(225,0,225,0.9)',
+        $('body').css({'background':'rgba(0,0,0,0.7)',
             'position':'relative'});
         alertContainer.css({'z-index':10});
 
