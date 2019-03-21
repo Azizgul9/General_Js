@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mine_alert_function/alert_style.css">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <script src="mine_alert_function/myAlert.js"></script>
+    <title>Zadaniye 1</title>
+</head>
+<body>
+    <div class="container">
+        <!--<div class="alert-function">
+            <h3 class="tittle">Alert</h3>
+            <p class="some_alert_text">This is the simple alert. <br>
+            with some <span class="bold">HTML</span> content</p>
+            <button id="confirmation">OK</button>
+        </div>-->
+        <a href="#" class="link_to_google">Google</a>
+    </div>
+    <script>
+        $(()=> {
+
+         //OMG!!! My alert function!
+           $('.link_to_google').on('click',function () {
+               $('.container').myAlert('Attention!','After u will press OK button you will be linked to  NEW LINK','OK');
+           });
+
+        });
+    </script>
+</body>
+</html>

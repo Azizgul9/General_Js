@@ -47,23 +47,38 @@
 
         $('.send_message').on('click',function() {
 
-                var message=$('.message_content');
+                //var message=$('.message_content');
 
-                var country=$('#country').val();
-                var url="https://restcountries.eu/rest/v2/name/"+country;
 
-                var taker=$.get(url,function (response) {
-                    for(var i=0;i<response.length;i++){
-                        $('.post_id').html(response[i].name);
-                        var img= $('<img>').attr('src', response[i].flag);
-                        $('.flag').html(img);
-                    }
-                });
-                $('.message_content').text($('#message').val());
+                //var country=$('#country').val();
+
+               // $('.message_content').text($('#message').val());
                 
-                localStorage.setItem(keep,message_block);
+                //localStorage.setItem(keep,message_block);
 
+                var Storage={
+                    country:[],
+                    flag:function(){
 
+                        for( var index=0;index<this.country.length;index++){
+                        var url="https://restcountries.eu/rest/v2/name/"+country[index];
+
+                        var taker=$.get(url,function (response) {
+                            for(var i=0;i<response.length;i++){
+                                $('.post_id').html(response[i].name);
+                                var img= $('<img>').attr('src', response[i].flag);
+                                $('.flag').html(img);
+                            }
+                        });
+                        }
+                    },
+                    message:[]
+                };
+                Storage.country.push($('#country').val());
+                Storage.message.push($('#message').val());
+
+                var keeper=JSON.stringify(Storage);
+                localStorage.setItem('storage',keeper);
 
         }
         );

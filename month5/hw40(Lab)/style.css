@@ -37,15 +37,30 @@ body{
 .set_date{
     float: left;
 }
-#message{
+.some_message #message{
     position: relative;
 }
 .send_message{
     position: absolute;
-    top: 10%;
+    top: 15%;
+    //left: 10%;
     padding: 30px;
     border: none;
-    background:url("send.png") no-repeat 50% 0;
+    background:#fff url("send.png") no-repeat 50% ;
+}
+@media screen and (max-width:636px){
+    .send_message{
+        top: 15%;
+        left:90%;
+    }
+}
+@media screen and (max-width:400px){
+    .send_message{
+        position: static;
+        display: block;
+        margin-left: 60px;
+        margin-top: 20px;
+    }
 }
 img{
     height: 50px;
