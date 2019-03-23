@@ -18,9 +18,10 @@
 
             alertContainer.append(alertTitle, $('<hr>'), alertMessage, alertButton);
             this.append(alertContainer);
-            this.css({'backround':'rgba(225,0,225,0.9)',
-            'position':'relative'});
-            alertContainer.css({'z-index':10});
+
+            // Making backDrop
+            $('.backDrop').css({'background':'rgba(0,0,0,0.5)'});
+
 
             alertButton.on('click',function(){
                 window.open('https://www.google.com/');

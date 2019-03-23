@@ -15,6 +15,7 @@
     <title>Zadaniye 1</title>
 </head>
 <body>
+    <div class="backDrop"></div>
     <div class="container">
         <!--<div class="alert-function">
             <h3 class="tittle">Alert</h3>
@@ -22,14 +23,14 @@
             with some <span class="bold">HTML</span> content</p>
             <button id="confirmation">OK</button>
         </div>-->
-        <a href="#" class="link_to_google">Google</a>
+        <a href="#" class="link_to_google">Search in Google</a>
     </div>
     <script>
         $(()=> {
 
          //OMG!!! My alert function!
            $('.link_to_google').on('click',function () {
-               $('.container').myAlert('Attention!','After u will press OK button you will be linked to  NEW LINK','OK');
+               $('.container').myAlert('Attention!','After u will press <span class="bold">OK</span> button you will be linked to  NEW LINK','OK');
            });
 
         });

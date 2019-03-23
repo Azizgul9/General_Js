@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+   <!-- <script src="tabPicker.js"></script>-->
+    <title>Zadaniye 2</title>
+</head>
+<body>
+<div class="container">
+    <div class="tab_box">
+        <ul class="tabs">
+            <li class="tab  active"  data-linking="content_1">tab 1</li>
+            <li class="tab" data-linking="content_2">tab 2</li>
+            <li class="tab" data-linking="content_3">tab 3</li>
+            <li class="tab" data-linking="content_4">tab 4</li>
+        </ul>
+        <div class="content content_1">Lorem1 ipsum dolor sit amet, consectetur adipisicing elit. Architecto, libero.</div>
+        <div class="content content_2">Lorem2 ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, totam!</div>
+        <div class="content content_3">Lorem3 ipsum dolor sit amet, consectetur adipisicing elit. Tempore, ullam?</div>
+        <div class="content content_4">Lorem4 ipsum dolor sit amet, consectetur adipisicing elit. Culpa, fugit!</div>
+    </div>
+</div>
+<script>
+    $(()=>{
+    var tabPick = function() {
+
+        var tabs = $('.tab');
+            //console.log(tabs);
+            $('.tab').on('click',
+                function() {
+                    for (var i = 1; i <=tabs.length; i++) {
+
+                        $(".active").removeClass("active");
+                        $(this).addClass('active');
+                        var k=$(this).data('linking');
+                        console.log(k);
+                        $('.content_'+i).css({'display':'none'});
+                        $("."+k).css({'display':'block'});
+
+                    }
+
+            });
+
+    };
+    tabPick();
+    });
+</script>
+</body>
+</html>

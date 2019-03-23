@@ -12,3 +12,7 @@ body{
     margin: 0 auto;
     position: relative;
 }
+.link_to_google{
+    color: #ffd464;
+    font-weight: bolder;
+}
