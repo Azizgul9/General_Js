@@ -1,0 +1,17 @@
+<script>
+   class Animal{
+       constructor(){
+           this.eats=true;
+       }
+   }
+
+   class Rabbit extends Animal{
+       jumps(){
+           console.log('Rabbit jumps')
+       }
+   }
+
+   var rabbit=new Rabbit();
+   rabbit.jumps();
+   console.log(rabbit.eats);
+</script>

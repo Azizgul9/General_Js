@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="Machine.js"></script>
+<script src="CoffeeMachine.js"></script>
+<script src="CoctailMaker.js"></script>
+<script>
+
+    var coffeeMachine=new CoffeeMachine(100);
+    coffeeMachine.waterAmount=200;
+    coffeeMachine.enable();
+    console.log(coffeeMachine);
+
+    var powerfullCoffeeMachine=new CoffeeMachine(300);
+    powerfullCoffeeMachine.waterAmount=500;
+
+    var coctailMaker=new CoctailMaker(['rum','cola','lime']);
+
+    var makeDrink=function(drinkMachine){
+        drinkMachine.run();
+    };
+
+    makeDrink(coffeeMachine);
+    makeDrink(coctailMaker)
+</script></script>

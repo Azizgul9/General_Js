@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var SomeObj={
+			jjj:'asdf'
+		};
+
+		var Animal={
+			eats: true
+		};
+
+Animal.__proto__=SomeObj;
+
+		var Rabbit={
+			jumps:true
+		};
+
+		Rabbit.__proto__=Animal;
+		console.log(Rabbit.jjj);
+	</script>
+</body>
+</html>

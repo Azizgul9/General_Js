@@ -5,11 +5,59 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <script src="date_picker/moment.min.js"></script>
+    <link rel="stylesheet" href="style.css">
     <title>Task 3</title>
 </head>
 <body>
     <div class="container">
-      <input id="date-pick">
+        Choose your date of birth:
+        <div class="input-field">
+            <input id="date-pick">
+            <div id="calendar">
+                <ul>
+                    <li>trydbytbtd</li>
+                    <li>trydbytbtd</li>
+                    <li>trydbytbtd</li>
+                    <li>trydbytbtd</li>
+                    <li>trydbytbtd</li>
+                </ul>
+            </div>
+        </div>
     </div>
+    <script>
+        $('#date-pick').on('change',function(){});
+        var datePick=function(){
+
+            var Days=['Mon','Tu','Wen','Thu','Fri','Sat','Sun'];
+
+
+            var currentDate=new Date();
+            Date.prototype.daysInMonth = function() {
+                return 32 - new Date(this.getFullYear(), this.getMonth(), 32).getDate();
+            };
+            alert(currentDate.daysInMonth());
+
+            var year=currentDate.getFullYear();
+            var month=currentDate.getMonth();
+            var day=currentDate.getDay();
+            console.log(year);
+            console.log(month);
+            console.log(new Date('2019'-'03'-'25').getDay());
+
+            alert(moment(year+'-'+month,"YYYY-MM").daysInMonth());
+
+        };
+        datePick();
+    </script>
+    <script>
+        $(()=>{
+
+        });
+    </script>
 </body>
 </html>

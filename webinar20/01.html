@@ -5,13 +5,76 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
     <title>webinar20</title>
+    <style>
+        #date-picker-wraper{
+            width: 200px;
+        }
+        .picker{
+            display: inline-block;
+        }
+        span{
+            display: inline-block;
+            width: 30px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+<form >
+<div id="date-picker-wraper">
+    <input type="text" id="datepicker">
+
+</div>
+</form>
 <script>
+    $( ()=>{
+
     var date = new Date();
+
+    console.log(date.getFullYear(),date.getMonth(),date.getDate(),date.getDay());
+
     var firstDay=new Date(date.getFullYear(),date.getMonth(),1);
     var lastDay=new Date(date.getFullYear(),(date.getMonth()+1),0);
+
+    console.log(firstDay.getDate());
+
+    $('#datepicker').on('focus',function(){
+        var picker=$('<div class="picker">');
+        $('#date-picker-wraper').append(picker);
+
+        var c=0;
+        var daysLeft=0;
+        var days=['sun','mon','tue','wen','thu','fri','sat'];
+
+        for(var i=0;i<days.length;i++){
+            var day=$('<div class="week">').html(days[i]);
+            picker.append(day);
+        }
+
+
+        while(c<lastDay.getDate()){
+            var day=$('<span class="day">');
+
+            if(daysLeft<firstDay.getDay()){
+                day.text('');
+                daysLeft++;
+            }else{
+                c++;
+                day.text(c);
+            }
+
+            $(picker).append(day);
+        }
+
+    });
+
+    });
+
 </script>
 </body>
 </html>

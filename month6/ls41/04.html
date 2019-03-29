@@ -1,0 +1,20 @@
+<script>
+    var Animal=function(name){
+        this.name=name;
+        this.speed=0;
+
+        //this.run
+    };
+    //_run esli prevdoprivatnyi
+    Animal.prototype.run=function () {
+        alert(this.name+' runs!');
+    };
+
+    var Rabbit=function(name){
+        Animal.apply(this,arguments);
+    };
+
+    Rabbit.prototype=Object.create(Animal.prototype);
+
+    Rabbit.prototype.constructor=Rabbit;
+</script>

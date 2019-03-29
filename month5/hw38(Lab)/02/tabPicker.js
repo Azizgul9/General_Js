@@ -1,17 +1,24 @@
 (function( $ ){
 
-    $.fn.tabPick = function(content_prefixer) {
+    $.fn.tabPick = function() {
 
-        // нет необходимости писать $(this), так как "this" - это уже объект jQuery
-        // выражение $(this) будет эквивалентно $($('#element'));
-        $('.active').removeClass('active');
-        this.addClass('active');
+        var tabs = $('.tab');
+        //console.log(tabs);
+        $('.tab').on('click',
+            function() {
+                for (var i = 1; i <=tabs.length; i++) {
 
-        var tabs=$('.tab').length;
-        for(var i=0;i<tabs;i++){
-            $('.tab').on('click',$('.tab').addClass('active'));
-        }
+                    $(".active").removeClass("active");
+                    $(this).addClass('active');
+                    var k=$(this).data('linking');
+                    console.log(k);
+                    $('.content_'+i).css({'display':'none'});
+                    $("."+k).css({'display':'block'});
 
+                }
+
+            });
+        //Этот файл на случай если надо будет плагин
 
     }
 })( jQuery );
