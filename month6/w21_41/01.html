@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        .col{
+            width: 33%;
+            float:left;
+            min-height: 100px;
+            border: 1px solid #000;
+        }
+        .task{
+            border:1px solif #eee;
+            border-radius: 5px;
+            margin:5px;
+        }
+    </style>
+    <script>
+        var findElementInArray=function(element,array){
+            for(var i=0;i<array.length;i++){
+                var currentElement=array[i];
+                if(currentElement===element){
+                    return 1;
+                }
+            }
+            return -1;
+        };
+        $(()=>{
+            var tasks=JSON.parse(localStorage.getItem('tasks'));
+            var counter=parseInt(localStorage.getItem('counter'));
+
+            if(!counter){
+                counter=0;
+            }
+
+            if(!tasks){
+            tasks={
+              todo:[],
+              inProgress:[],
+              done:[]
+            };
+            }
+
+
+            var saveTasks=function(){
+                localStorage.setItem('tasks',JSON.stringify(tasks));
+            };
+            var saveCounter=function(){
+                localStorage.setItem('counter',counter.toString());
+            };
+
+            var createElement=function(task){
+
+                var taskElement=$('<div class="task">');
+                var taskElementRemove=$('<button>X</button>');
+                taskElementRemove.on('click',function () {
+                    console.log('Here,in taskElementRemove');
+
+                    var index=tasks.todo.findIndex(function (item) {
+                            return item.id===task.id;
+                    });
+                    tasks.todo.slice(index,1);
+                    saveTasks();
+                    taskElementRemove.remove();
+                });
+
+                taskElement.append(taskElementRemove);
+                $('#todo-col').append(taskElement);
+                taskElement.append(task.text);
+            };
+            for(var i=0;i<tasks.todo.length;i++){
+                createElement(tasks.todo[i]);
+            }
+
+           $('#todo-add-form').on('submit',function(e){
+               e.preventDefault();
+                var text=$('#todo-text').val();
+
+                tasks.todo.push({
+                    text:text,
+                    id:counter
+                });
+                saveTasks();
+                saveCounter();
+                createElement(text);
+           });
+        });
+    </script>
+</head>
+<body>
+<form id="todo-add-form">
+    <label for="todo-text">
+        Create ne to-d0
+        <input type="text" id="todo-text">
+    </label>
+    <button type="submit" id="todo-add">Add</button>
+</form>
+<div>
+    <div id="todo-col" class="col"></div>
+    <div id="in-progress-col" class="col"></div>
+    <div id="done-col" class="col" ></div>
+</div>
+</body>
+</html>

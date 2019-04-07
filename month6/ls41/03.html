@@ -9,17 +9,18 @@
 	    eats: true
 	};
 
+	//funktsiya konstruktor
 	var Rabbit=function(name){
 	    // ne rabotayet v staryh brauzerah
         //this.__proto__=Animal;
 	    this.name=name;
 	};
 
-	//Rabbit.__proto__=Animal;
+	//Rabbit.__proto__=Animal; bolee nizkourovnevyi
     Rabbit.prototype=Animal;
 
 	var cookie= new Rabbit('Cookie');
-   // cookie.__proto__=Animal;
+   // cookie.__proto__=Animal; no vsyakiy raz my tak ne mojem
 	console.log(cookie.name);
 	console.log(cookie.eats);
 

@@ -1,0 +1,28 @@
+<script>
+    //funktsiya konstrucktor
+    var Animal=function(){
+        this.type='animal';//esli net etogo povedeniya
+    };
+    Animal.prototype.eats=true;
+
+    var Rabbit=function(name){
+        Animal.call(this); //ne osobo nujno
+        this.name=name;
+    };
+    Rabbit.prototype=Object.create(Animal.prototype); nasledovaniye
+
+    Rabbit.prototype.say=function(){
+       console.log('I am a rabbit!');
+    };
+
+    Rabbit.prototype.live=function(){
+        console.log('I am '+this.type);
+        this.say();
+    };
+
+    var cookie=new Rabbit('Cookie');
+    console.log(cookie);
+    cookie.live();
+
+
+</script>

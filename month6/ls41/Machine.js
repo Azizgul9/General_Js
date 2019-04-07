@@ -1,12 +1,15 @@
 var Machine=function() {
-
- this._enabled = false;
- var self=this
+    //var enabled=false;
+ this._enabled = false; //Psevdo privatnye peremennye
+ var self=this;
  
 
  this.enable = function() {
 
-   self._enabled = true;
+   self._enabled = true;//syuda
+     // ne prenositsya iz verhnego
+     //konteksta
+     //potomu this sohranili v self
 
  };
 
