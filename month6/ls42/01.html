@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    var Animal={
+      eats:true
+    };
+
+    var Rabbit={
+      jumps: true,
+      __proto__:Animal
+    };
+
+    for(var key in Rabbit){
+        if(!Rabbit.hasOwnProperty(key)) continue;
+        console.log(key+' = '+Rabbit[key]);
+    }
+
+    console.log(Rabbit.hasOwnProperty('jumps'));
+    console.log(Rabbit.hasOwnProperty('eats'));
+
+    var rabbitKeys=Object.keys(Rabbit);// ['jumps']
+    for(var i=0;i<rabbitKeys.length;i++){
+        var key=rabbitKeys[i];
+        console.log(key+' = '+Rabbit[key]);
+    }
+
+    Object.keys(Rabbit).forEach(function(key){
+       console.log(key,Rabbit[key]);
+    });
+
+</script>

@@ -20,8 +20,7 @@
 <body>
 <div id="container">
     <div class="message-block">
-        <p class="info_content"><span class="post_id"></span><span class="flag"></span><a href="#" class="remove">Remove</a></p>
-        <p class="message_content"></p>
+
     </div>
     <hr>
     <div class="start-message clearfix">
@@ -44,46 +43,28 @@
         //Date picker
         $( "#datepicker" ).datepicker();
 
+        var messages=JSON.parse(localStorage.getItem());
+        $('.message-block').html(messages);
+
+        var country=$('#country').val();
+        var date=$('#datepicker').val();
+
+        var url="https://restcountries.eu/rest/v2/name/"+country;
+        var flag=$.get(url,function (response) {
+            for(var i=0;i<response.length;i++){
+                return response[i].flag;
+            }
+        });
+
+
+       var img=$('<img >').attr(flag);
+
+
+       var info=[];
 
         $('.send_message').on('click',function() {
-
-                //var message=$('.message_content');
-
-
-                //var country=$('#country').val();
-
-               // $('.message_content').text($('#message').val());
-                
-                //localStorage.setItem(keep,message_block);
-                var myArray=[];
-
-                var Storage={
-                    country:[],
-                    flag:function(){
-
-                        for( var index=0;index<this.country.length;index++){
-                        var url="https://restcountries.eu/rest/v2/name/"+country[index];
-
-                        var taker=$.get(url,function (response) {
-                            for(var i=0;i<response.length;i++){
-                                $('.post_id').html(response[i].name);
-                                var img= $('<img>').attr('src', response[i].flag);
-                                $('.flag').html(img);
-                            }
-                        });
-                        }
-                    },
-                    message:[]
-                };
-                Storage.country.push($('#country').val());
-                Storage.message.push($('#message').val());
-                myArray.push(Storage);
-
-                var keeper=JSON.stringify(myArray);
-                localStorage.setItem('storage',keeper);
-
-        }
-        );
+            var Obj={};
+        });
 
 
 

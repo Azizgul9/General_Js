@@ -1,0 +1,18 @@
+<script>
+    window.onerror=function (message,url,lineNumber) {
+        console.log('Global error');
+        console.log(message);
+        console.log(url);
+        console.log(lineNumber);
+    }
+   /* try{
+        console.log('in try block');*/
+        if(confirm("Make error?")){
+            BAD_CODE();
+        // }
+    }/*catch(error){
+        console.log('in catch block');
+    }finally {
+        console.log('in finally block');
+    }*/
+</script>

@@ -1,0 +1,22 @@
+<script>
+    var data='{"name":"John","age":30}';
+
+    try{
+    var user=JSON.parse(data);
+
+    console.log(user.name);
+
+    if(!user.age){
+        throw new SyntaxError('Data is incorrect!');
+    }
+
+    user=logInUser(user);
+    }catch(error){
+        if(error.name==='SyntaxError') {
+            alert('Sorry, data is incorrect. ');
+        }else{
+            throw error;
+        }
+    }
+
+</script>
