@@ -1,0 +1,35 @@
+<script
+        src="https://code.jquery.com/jquery-3.4.0.js"
+        integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+        crossorigin="anonymous"></script>
+
+<button id="add_one">Add 1</button>
+<button id="add_three">Add 3</button>
+
+<script src="piggy_bank.js"></script>
+<script src="Observer.js"></script>
+<script>
+    var pb=new PiggyBank();
+
+    var observer=new Observer();
+
+    observer.on('coin_added',function(e){
+        console.log('coin_added',e);
+        pb.addCoin(e.value);
+        observer.trigger('coins_change');
+    });
+    observer.on('coins_change',function(e){
+        var total=pb.getTotal();
+        var coins=pb.coins;
+
+        console.log('coins changed');
+        //$('total').html(total);
+    });
+
+    $('add_one').on('click',function(){
+        observer.trigger('coin_added',[value: 1]);
+    });
+    $('add_three').on('click',function(){
+        observer.trigger('coin_added',[value: 3]);
+    });
+</script>

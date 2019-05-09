@@ -1,0 +1,22 @@
+<button class="click_me">click me</button>
+<button class="click_me">click me</button>
+<button class="click_me">click me</button>
+<button class="click_me">click me</button>
+<button class="click_me">click me</button>
+<script
+        src="https://code.jquery.com/jquery-3.4.0.js"
+        integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+        crossorigin="anonymous"></script>
+<script>
+    let button = $('.click_me');
+
+    var handler=function(e){
+        console.log('function 1');
+        console.log(e.currentTarget);
+    };
+    button.on('click',handler);
+
+    setTimeout(function() {
+        button.off('click', handler);
+    },5000);
+</script>

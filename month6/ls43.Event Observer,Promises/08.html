@@ -1,0 +1,40 @@
+<div></div>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+<script>
+    $(function(){
+       var div=$('div');
+       $.get('https://restcountries.eu/rest/v2/name/Kyrgyzstan',function(response){
+           var country=response[0];
+           console.log(Object.keys(country));
+           Object.keys(country).forEach(function(key){
+
+               div.append('<p><b>'+key+'</b></p>');
+
+               switch (key) {
+                   case 'currencies':
+                       var currenciesData=country[key];
+                       var table=$('<table><tr><th>Currency code</th>Name<th></th></tr></table>');
+                       currenciesData.forEach(function(currency){
+                           var tr=$('<tr>');
+                           tr.append('<td>'+currency.code+'</td>');
+                           tr.append('<td>'+currency.name+'</td>');
+                           tr.append('<td>'+currency.symbol+'</td>');
+                           table.append(tr);
+                       });
+                       div.append(table);
+                       break;
+                   default:
+                       if(Array.isArray(country)){
+                            div.append(country[key].join(', '));
+                       }
+                       else{
+                       div.append(country[key]);
+                       }
+               }
+           });
+       })
+    });
+</script>

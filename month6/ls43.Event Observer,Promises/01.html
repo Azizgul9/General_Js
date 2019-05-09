@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script
+            src="https://code.jquery.com/jquery-3.4.0.js"
+            integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<button id="new-guest">New Guest</button>
+<script>
+    var Observer = function(){
+        this.listeners={};
+        /*
+        this.listeners={
+        'guest_arrived': [f(),f()]
+        'guest_departed':[f()]
+        }
+        */
+    };
+
+    Observer.prototype.on=function(type,listener){
+        // if(this.listeners[type]){
+        //     this.listeners[type].push(listener);
+        // }else{
+        //     this.listeners[type]=[listener];
+        // }
+        if(!this.listeners[type]){
+            this.listeners[type]=[];
+            //this.listeners[type]=listener;
+        }
+        //else{}
+        this.listeners[type].push(listener);
+    };
+    Observer.prototype.off=function(type, listener){
+      if(this.listeners[type]){
+          var listenerIndex=this.listeners[type].indexOf(listener);
+          if(listenerIndex!== -1){
+              this.listeners[type].splice(listenerIndex,1);
+          }
+      }
+    };
+    //zapuskaet sobytiye
+    Observer.prototype.trigger=function(type,event){
+        if(this.listeners[type]){
+            this.listeners[type].forEach(function(listener){
+                listener(event);
+            });
+        }
+    };
+
+    var observer= new Observer();
+    observer.on('guest_arrived',function () {
+        console.log('Guest has arrived');
+    });
+
+    $('#new-guest').on('click',function(){
+        observer.trigger('guest_arrived');
+    });
+
+    var o=new Observer();
+
+    o.on('guest_arrived',function(e){
+        console.log('Guest has arrived: ');
+        console.log(e);
+    });
+
+    var secondFunction=function(e){
+        console.log('Second function on guest-arrived')};
+
+    o.on('guest_arrived',secondFunction
+    );
+
+    o.on('guest_departed',function(e){
+        console.log('Guest has departed: ');
+        console.log(e);
+    });
+
+    o.trigger('guest_arrived',{name: 'John'});
+    o.off('guest_arrived',secondFunction);
+
+    o.trigger('guest_arrived',{name: 'Jack'});
+
+    o.trigger('guest_departed',{name: 'John'});
+    o.trigger('coin_add',{value: 1});
+</script>
+</body>
+</html>

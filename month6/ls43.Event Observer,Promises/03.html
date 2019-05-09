@@ -1,0 +1,78 @@
+<script>
+    var request=function(url,
+                         // callback
+                          successCallback,
+                          errorCallback) {
+
+        var xhr = new XMLHttpRequest();
+        xhr.timeout = 2000;
+       // var result=null;
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                //Request is complete
+                if (xhr.status === 200) {
+                    //success
+                    //result='success';
+                   // callback(null,xhr.response);
+                    successCallback(xhr.response);
+                } else {
+                    //error
+                    //result="error";
+                   // callback(xhr.status,null);
+                    errorCallback(xhr.status);
+                }
+            }
+        };
+        xhr.ontimeout = function () {
+            //timeout
+           // callback('timout',null);
+            errorCallback('timeout');
+        };
+        xhr.open('get', url);
+        xhr.send();// zarabotayet v paralellnoy realnosti
+
+       // return result;
+    };
+
+    // var requestSuccess=function(result){
+    //     console.log('request success');
+    //     console.log(result);
+    // };
+    //
+    // var requestError=function(error){
+    //     console.log('Request error');
+    // };
+    //
+    // request('https://restcountries.eu/rest/v2/name/Japan',
+    //     /*function(error,result){
+    //     if(error) {
+    //         console.log('Request error');
+    //     }else{
+    //         console.log('request success');
+    //         console.log(result);
+    //     }
+    //     }*/
+    //     requestSuccess,requestError
+    // );
+
+    var url='https://api.github.com/search/users?q=sylvix';
+    
+    var handleError=function (error) {
+        console.log('Error!');
+        console.log(error);
+    };
+
+    request(url,function(result){
+        var list=JSON.parse(result);
+
+        var items=list.items;
+
+        items.forEach(function (user) {
+            request(user.repos_url,function (result) {
+                console.log(result);
+            },handleError);
+        });
+    },handleError)
+
+</script>

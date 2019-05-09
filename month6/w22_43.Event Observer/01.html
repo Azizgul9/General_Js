@@ -1,0 +1,21 @@
+<button id="click_me">Click me</button>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+
+<script>
+    let button = $('#click_me');
+    button.on('click',function(){
+        console.log('Function 1');
+    });
+    button.on('click',function(){
+        console.log('Function 2');
+    });
+    button.on('click',function(){
+        console.log('Function 3');
+    });
+    button.on('click',function(){
+        console.log('Function 4');
+    });
+</script>
