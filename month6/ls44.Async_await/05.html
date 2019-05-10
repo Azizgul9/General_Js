@@ -1,0 +1,17 @@
+<script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+
+<script>
+
+    var getCountry=function(){
+        return  $.ajax({
+            method: 'GET',
+            url: 'https://restcountries.eu/rest/v2/name/Kyrgyzstan'
+        });
+    };
+    getCountry().then(function(response){
+        console.log(response);
+    });
+</script>

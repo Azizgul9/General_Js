@@ -1,0 +1,27 @@
+<script>
+    var waitForFiveeSeconds=function () {
+      return new Promise(function(resolve,reject){
+          setTimeout(function(){
+              resolve('7 seconds have passed');
+          },7000);
+      });
+    };
+
+
+    var waitForThreeSeconds=function () {
+        return new Promise(function (resolve,reject) {
+            setTimeout(function () {
+                resolve('3 seconds have passed');
+            },3000);
+        });
+    };
+
+    var showResult=function(result){
+        console.log(result);
+    };
+
+    waitForFiveeSeconds()
+        .then(showResult)
+        .then(waitForThreeSeconds)
+        .then(showResult);
+</script>

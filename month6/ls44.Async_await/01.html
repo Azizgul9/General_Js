@@ -1,0 +1,14 @@
+<script>
+    var waitForFiveeSeconds=new Promise(function(resolve,reject){
+       setTimeout(function(){
+           resolve('7 seconds have passed');
+       },7000);
+    });
+
+    var showResult=function(result){
+        console.log(result);
+        console.log('1');
+    };
+    waitForFiveeSeconds.then(showResult);
+    console.log('2');
+</script>

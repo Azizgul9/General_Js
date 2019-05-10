@@ -57,24 +57,26 @@
                 localStorage.setItem('counter',counter.toString());
             };
 
-            var createElement=function(task){
+            var createElement=function(text){
 
                 var taskElement=$('<div class="task">');
                 var taskElementRemove=$('<button>X</button>');
+
                 taskElementRemove.on('click',function () {
                     console.log('Here,in taskElementRemove');
 
-                    var index=tasks.todo.findIndex(function (item) {
-                            return item.id===task.id;
-                    });
-                    tasks.todo.slice(index,1);
+                    var index=findElementInArray(text,tasks.todo);
+                    //     tasks.todo.findIndex(function (item) {
+                    //         return item.id===task.id;
+                    // });
+                     tasks.todo.slice(index,1);
                     saveTasks();
                     taskElementRemove.remove();
                 });
 
                 taskElement.append(taskElementRemove);
+                taskElement.append(text);
                 $('#todo-col').append(taskElement);
-                taskElement.append(task.text);
             };
             for(var i=0;i<tasks.todo.length;i++){
                 createElement(tasks.todo[i]);
@@ -83,7 +85,7 @@
            $('#todo-add-form').on('submit',function(e){
                e.preventDefault();
                 var text=$('#todo-text').val();
-
+                counter++;
                 tasks.todo.push({
                     text:text,
                     id:counter
@@ -98,7 +100,7 @@
 <body>
 <form id="todo-add-form">
     <label for="todo-text">
-        Create ne to-d0
+        Create new to-do
         <input type="text" id="todo-text">
     </label>
     <button type="submit" id="todo-add">Add</button>
