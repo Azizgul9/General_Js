@@ -1,0 +1,27 @@
+<script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+<p id="help">Helpful notes will apear here</p>
+<p>E-mail: <input type="text" id="email" name="email"></p>
+<p>Name: <input type="text" id="name" name="name"></p>
+<p>Age: <input type="text" id="age" name="age"></p>
+<script>
+var helpText=[
+    {'id':'email','help':'Your e-mail'},
+    {'id':'name','help':'Your full name'},
+    {'id':'age','help':'Your age (you should be more than 16)'}
+];
+
+var makeHelpCallback=function (item) {
+    return function () {
+      return  $('#help').text(item.help);
+    };
+};
+
+for (var i=0;i<helpText.length;i++){
+    var item=helpText[i];
+
+    $('#'+item.id).on('focus',makeHelpCallback(item));
+}
+</script>
