@@ -1,0 +1,25 @@
+<script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+<div id="container"></div>
+<script>
+    var createCallBack=function(pokemon){
+        return function () {
+            $.get(pokemon.url).then(function (result) {
+                console.log(result);
+            });
+        }
+    };
+$.get('https://pokeapi.co/api/v2/pokemon/').then(function (result) {
+    var container=$('#container');
+
+    for(var i=0;i<result.results.length;i++){
+        var pokemon=result.results[i];
+
+        var element=$('<p>'+pokemon.name+'</p>');
+        element.on('click',createCallBack(pokemon));
+        container.append(element);
+    }
+})
+</script>

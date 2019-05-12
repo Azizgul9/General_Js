@@ -1,0 +1,32 @@
+<script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+<div id="container"></div>
+<script>
+    var pokemonPerPge=50;
+
+    $.get('https://pokeapi.co/api/v2/pokemon/').then(function (result) {
+        var container=$('#container');
+        var body=$('body');
+
+        var pagesCount=Math.cell(result.results.length/pokemonPerPge);
+
+        var elements=[];
+
+        result.forEach(function (pokemon) {
+            var element=$('<p>'+pokemon.name+'</p>');
+
+            element.on('click',function (pokemon) {
+                $.get(pokemon.url).then(function (result) {
+                    console.log(result);
+                });
+            });
+            elements.push(element);
+            for(var i=1;i<=pagesCount;i++){
+               var pageLink=$('<a href="#">'+i+'</a>').css({marginRight:'10px'});
+               body.append(pageLink);
+            }
+        });
+    })
+</script>
